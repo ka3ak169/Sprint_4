@@ -1,0 +1,20 @@
+.elements__like {
+    background-image: url(../../../image/Vectorlove.svg);
+    min-width: 22px;
+    height: 19px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border: none;
+    padding: 0;
+}
+
+.elements__like:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.elements__like:active {
+    background-image: url(../../../image/Union.svg);
+    opacity: 1;
+}

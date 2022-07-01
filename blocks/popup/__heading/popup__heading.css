@@ -5,3 +5,13 @@
     line-height: 29px;
     font-family: inter;
 }
+
+@media screen and (max-width:600px) {
+    .popup__heading {
+        font-size: 18px;
+        line-height: 22px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}

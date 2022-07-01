@@ -8,3 +8,10 @@
     align-items: center;
     display: none;
 }
+
+@media screen and (max-width: 600px) {
+    .popup {
+        padding: 0 19px 0;
+        box-sizing: border-box;
+    }
+}

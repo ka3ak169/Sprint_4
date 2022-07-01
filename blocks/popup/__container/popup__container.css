@@ -10,3 +10,13 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+@media screen and (max-width:600px) {
+    .popup__container {
+    max-width: 282px;
+    width: 100%;
+    padding: 25px 22px;
+    max-height: 322px;
+    box-sizing: border-box;
+    }
+}

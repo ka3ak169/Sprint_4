@@ -24,45 +24,45 @@
     </section>
   <section class="elements">
     <div class="elements__element">
-      <img class="elements__image" alt="" src="./image/kirill-pershin-1088404-unsplash.png">
+      <img class="elements__image" alt="горы" src="./image/kirill-pershin-1088404-unsplash.png">
       <div class="elements__group">
-        <p class="elements__place">Карачаево-Черкессия</p>
-        <button class="elements__like"></button>
+        <h2 class="elements__place">Карачаево-Черкессия</h2>
+        <button class="elements__like" type="button"></button>
       </div>
     </div>
     <div class="elements__element">
-      <img class="elements__image" alt="" src="./image/Агата.jpg">
+      <img class="elements__image" alt="котик" src="./image/Агата.jpg">
       <div class="elements__group">
-        <p class="elements__place">Милая кошечка Агата</p>
-        <button class="elements__like"></button>
+        <h2 class="elements__place">Милая кошечка Агата</h2>
+        <button class="elements__like" type="button"></button>
       </div>
     </div>
     <div class="elements__element">
-      <img class="elements__image" alt="" src="./image/Баркик.jpg">
+      <img class="elements__image" alt="милый котик" src="./image/Баркик.jpg">
       <div class="elements__group">
-        <p class="elements__place">Милый котик Барсик</p>
-        <button class="elements__like"></button>
+        <h2 class="elements__place">Милый котик Барсик</h2>
+        <button class="elements__like" type="button"></button>
       </div>
     </div>
     <div class="elements__element">
-      <img class="elements__image" alt="" src="./image/Борис.jpg">
+      <img class="elements__image" alt="черный котик" src="./image/Борис.jpg">
       <div class="elements__group">
-        <p class="elements__place">Милый котик Борис</p>
-        <button class="elements__like"></button>
+        <h2 class="elements__place">Милый котик Борис</h2>
+        <button class="elements__like" type="button"></button>
       </div>
     </div>
     <div class="elements__element">
-      <img class="elements__image" alt="" src="./image/Рыжик.jpg">
+      <img class="elements__image" alt="рыжий котик" src="./image/Рыжик.jpg">
       <div class="elements__group">
-        <p class="elements__place">Милый котик Рыжик</p>
-        <button class="elements__like"></button>
+        <h2 class="elements__place">Милый котик Рыжик</h2>
+        <button class="elements__like" type="button"></button>
       </div>
     </div>
     <div class="elements__element">
-      <img class="elements__image" alt="" src="./image/Тимоша.jpg">
+      <img class="elements__image" alt="белый котик" src="./image/Тимоша.jpg">
       <div class="elements__group">
-        <p class="elements__place">Милый котик Тимоша</p>
-        <button class="elements__like"></button>
+        <h2 class="elements__place">Милый котик Тимоша</h2>
+        <button class="elements__like" type="button"></button>
       </div>
     </div>
   </section>
@@ -72,15 +72,17 @@
   </footer>
   <div class="popup">
   <!-- <div class="popup popup_opened"> -->
-    <form class="popup__container">
+    <div class="popup__container">
       <h2 class="popup__heading">Редактировать профиль</h2>
-      <fieldset class="popup__field">
-        <input type="text" class="popup__input popup__name" value="">
-        <input type="text" class="popup__input popup__activity" value="">
-      </fieldset>
-      <button class="popup__submit-button" type="submit">Сохранть</button>
-      <button class="popup__close-button"><img src="./image/Close.svg" class="popup__image" alt="закрыть"></button>
-    </form>
+      <button class="popup__close-button" name="close" type="button"></button>
+      <form class="popup__form">
+        <fieldset class="popup__field">
+          <input type="text" class="popup__input popup_place_name" name="name" value="" placeholder="Имя">
+          <input type="text" class="popup__input popup_place_activity" name="activity" value="" placeholder="Вид деятельности">
+        </fieldset>
+        <button class="popup__submit-button" type="submit" name="submit">Сохранть</button>
+      </form>
+    </div>
   </div>
   <script src="./scripts/index.js"></script>
 </body>

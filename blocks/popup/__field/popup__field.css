@@ -3,3 +3,9 @@
     padding: 0;
     border: none;
 }
+
+@media screen and (max-width: 600px) {
+    .popup__field {
+        margin-top: 42px;
+    }
+}

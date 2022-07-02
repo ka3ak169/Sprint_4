@@ -6,12 +6,13 @@
     margin-left: 30px;
     align-items: baseline;
     gap: 16px 25px;
-    max-width: 100%;
+    max-width: 73%;
 }
 
 @media screen and (max-width: 600px) {
     .profile__info {
-        margin: 22px 0 0 34px;
+        margin: 26px 0 0 34px;
         gap: 14px 10px;
+        max-width: 100%;
     }
 }

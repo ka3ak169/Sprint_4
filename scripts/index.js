@@ -3,8 +3,8 @@ const popupForm = document.querySelector('.popup__form');
 const popupCloseBtnElement = popupElement.querySelector('.popup__close-button');
 const popupOpenBtnElement = document.querySelector('.profile__edit-button');
 const popupSumbitBtnElement = popupElement.querySelector('.popup__submit-button');
-const popupInputName = popupElement.querySelector('.popup__place_name');
-const poppuInputActivity = popupElement.querySelector('.popup__place_activity');
+const popupInputName = popupElement.querySelector('.popup__input_place_name');
+const poppuInputActivity = popupElement.querySelector('.popup__input_place_activity');
 const pageProfileName = document.querySelector('.profile__name');
 const pageProfileActivity = document.querySelector('.profile__activity');
 

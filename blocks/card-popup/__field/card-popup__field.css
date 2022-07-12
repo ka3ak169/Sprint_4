@@ -1,0 +1,11 @@
+.card-popup__field {
+    margin: 50px 0 0;
+    padding: 0;
+    border: none;
+}
+
+@media screen and (max-width: 600px) {
+    .card-popup__field {
+        margin-top: 42px;
+    }
+}

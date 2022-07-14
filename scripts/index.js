@@ -16,10 +16,13 @@ const cardPopupCloseBtn = cardPopupElement.querySelector('.card-popup__close-but
 const cardPopupInputPlace = cardPopupElement.querySelector('.card-popup__input_place_name');
 const cardPopupInputLink = cardPopupElement.querySelector('.card-popup__input_place_activity');
 const cardPopupSubmitBtn = cardPopupElement.querySelector('.card-popup__submit-button');
+// card Add
+
+
 
 
 // console.log(popupElement, popupCloseBtnElement, popupOpenBtnElement, popupInputName, poppuInputActivity, popupSubmitBtnElement, pageProfileName, pageProfileActivity);
-console.log(cardPopupFrom, cardPopupCloseBtn, cardPopupInputPlace, cardPopupInputLink, cardPopupSubmitBtn, cardPopupAddBtn);
+// console.log(cardPopupFrom, cardPopupCloseBtn, cardPopupInputPlace, cardPopupInputLink, cardPopupSubmitBtn, cardPopupAddBtn);
 
 // popup
 
@@ -59,64 +62,66 @@ const closeCardPopup = function() {
 
 const cardPopupSubmit = function(event) {
     event.preventDefault();
-    cardCreate(cardPopupInputPlace.value, cardPopupInputLink.value);
+    createCard(cardPopupInputPlace.value, cardPopupInputLink.value);
 
+    console.log(cardPopupInputPlace.value, cardPopupInputLink.value);
     closeCardPopup();
 };
 
+const createCard = function(name, link) {
+  const cadrTemplate = document.querySelector('.card-template').content.querySelector('.elements__element').cloneNode('true');
+  const cardName = cadrTemplate.querySelector('.elements__place');
+  const cardLink = cadrTemplate.querySelector('.elements__image');
+
+  cardName.textContent = name;
+  cardLink.alt = name;
+  cardLink.src = link;
 
 
-// Create card
+  listElement.prepend(cadrTemplate);
 
-const cardCreate = function(name, link) {
-    const cardAdd = `<div class="elements__element">
-    <img class="elements__image" alt="${name}" src="${link}">
-    <div class="elements__group">
-      <h2 class="elements__place">${name}</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-    <div class="elements__trash"></div>
-  </div>`;
+  console.log(cadrTemplate, cardName, cardLink);
+};
 
-  listElement.insertAdjacentHTML('afterbegin', cardAdd);
+
+const initialCard = function() {
+  const cards = [
+    {
+    name: 'Карачаево-Черкессия',
+    link: './image/kirill-pershin-1088404-unsplash.png'
+  },
+  {
+    name: 'Милая кошечка Агата',
+    link: './image/Агата.jpg'
+  },
+  {
+    name: 'Милый котик Барсик',
+    link: './image/Баркик.jpg'
+  },
+  {
+    name: 'Милый котик Борис',
+    link: './image/Борис.jpg'
+  },
+  {
+    name: 'Милый котик Рыжик',
+    link: './image/Рыжик.jpg'
+  },
+  {
+    name: 'Милый котик Тимоша',
+    link: './image/Тимоша.jpg'
+  }
+];
+
+  cards.forEach(function(card) {
+    createCard(card.name, card.link);
+  });
 }
 
-const createInitilCards = function() {
-    const cards = [
-        {
-        name: 'Карачаево-Черкессия',
-        link: './image/kirill-pershin-1088404-unsplash.png'
-      },
-      {
-        name: 'Милая кошечка Агата',
-        link: './image/Агата.jpg'
-      },
-      {
-        name: 'Милый котик Барсик',
-        link: './image/Баркик.jpg'
-      },
-      {
-        name: 'Милый котик Борис',
-        link: './image/Борис.jpg'
-      },
-      {
-        name: 'Милый котик Рыжик',
-        link: './image/Рыжик.jpg'
-      },
-      {
-        name: 'Милый котик Тимоша',
-        link: './image/Тимоша.jpg'
-      }
-    ];
-
-      cards.forEach(function(card) {
-        cardCreate(card)});
-}
+initialCard();
 
 cardPopupAddBtn.addEventListener('click', openCardPopup);
 cardPopupCloseBtn.addEventListener('click', closeCardPopup);
 cardPopupFrom.addEventListener('submit', cardPopupSubmit);
-createInitilCards();
 
 
 

@@ -4,10 +4,12 @@
   height: 100%;
   position: fixed;
   z-index: 15;
+  visibility: hidden;
   justify-content: center;
   align-items: center;
-  display: none;
+  display: flex;
   box-sizing: border-box;
   padding: 0;
-  display: none;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
 }

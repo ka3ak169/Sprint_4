@@ -25,22 +25,21 @@
 /* блок footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__autograph/footer__autograph.css);
-/* блок popup */
-@import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__close-button/popup__close-button.css);
-@import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__field/popup__field.css);
-@import url(../blocks/popup/__heading/popup__heading.css);
-@import url(../blocks/popup/__submit-button/popup__submit-button.css);
-@import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/_opened/popup_opened.css);
+/* блок profile-popup */
+@import url(../blocks/profile-popup/profile-popup.css);
+@import url(../blocks/profile-popup/__close-button/profile-popup__close-button.css);
+@import url(../blocks/profile-popup/__container/profile-popup__container.css);
+@import url(../blocks/profile-popup/__field/profile-popup__field.css);
+@import url(../blocks/profile-popup/__heading/profile-popup__heading.css);
+@import url(../blocks/profile-popup/__input/profile-popup__input.css);
+@import url(../blocks/profile-popup/__submit-button/profile-popup__submit-button.css);
 /* блок image-popup */
 @import url(../blocks/image-popup/image-popup.css);
 @import url(../blocks/image-popup/__container/image-popup__container.css);
 @import url(../blocks/image-popup/__description/image-popup__description.css);
 @import url(../blocks/image-popup/__image/image-popup__image.css);
 @import url(../blocks/image-popup/__close-button/image-popup__close-button.css);
-@import url(../blocks/image-popup/_opened/image-popup_opened.css);
+
 /* блок card-popup */
 @import url(../blocks/card-popup/card-popup.css);
 @import url(../blocks/card-popup/__close-button/card-popup__close-button.css);
@@ -49,7 +48,9 @@
 @import url(../blocks/card-popup/__heading/card-popup__heading.css);
 @import url(../blocks/card-popup/__input/card-popup__input.css);
 @import url(../blocks/card-popup/__submit-button/card-popup__submit-button.css);
-@import url(../blocks/card-popup/_opened/card-popup_opened.css);
+
+
+@import url(../blocks/popup/popup.css);
 
 
 

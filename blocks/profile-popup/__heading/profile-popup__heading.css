@@ -1,4 +1,4 @@
-.popup__heading {
+.profile-popup__heading {
     margin: 0;
     font-weight: 900;
     font-size: 24px;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width:600px) {
-    .popup__heading {
+    .profile-popup__heading {
         font-size: 18px;
         line-height: 22px;
         white-space: nowrap;

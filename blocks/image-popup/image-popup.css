@@ -4,12 +4,12 @@
   height: 100%;
   position: fixed;
   z-index: 15;
-  visibility: hidden;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: none;
   box-sizing: border-box;
   padding: 0;
-  opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s linear;
+  /* visibility: hidden; */
+  /* opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear; */
 }

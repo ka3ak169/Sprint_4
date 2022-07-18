@@ -15,6 +15,8 @@ const cardPopupCloseBtn = cardPopupElement.querySelector('.card-popup__close-but
 const cardPopupInputPlace = cardPopupElement.querySelector('.card-popup__input_place_name');
 const cardPopupInputLink = cardPopupElement.querySelector('.card-popup__input_place_activity');
 const cardPopupFrom = cardPopupElement.querySelector('.card-popup__form');
+// card teamplate
+const cardTemplate = document.querySelector('.card-template');
 
 const openPopup = function(popupName) {
   popupName.classList.add('popup_opened');
@@ -40,21 +42,26 @@ const formSubmitHandler = function(event) {
     closePopup(profilePopupContainer);
 }
 
-profileEditBtn.addEventListener('click', function() {openProfilePopup()});
-profilePopupCloseBtn.addEventListener('click', function() {closePopup(profilePopupContainer)});
+profileEditBtn.addEventListener('click', function() { openProfilePopup() });
+profilePopupCloseBtn.addEventListener('click', function() { closePopup(profilePopupContainer) });
 profilePopupForm.addEventListener('submit', formSubmitHandler);
 
 // // card-popup
 
 const cardPopupSubmit = function(event) {
     event.preventDefault();
-    createCard(cardPopupInputPlace.value, cardPopupInputLink.value);
+    const data = [{
+      name: cardPopupInputPlace.value,
+      link: cardPopupInputLink.value
+    }];
+    renderCard(data, listElement);
     cardPopupFrom.reset();
 
     closePopup(cardPopupElement);
 };
 
 // // image popup
+
 const createImagePopup = function(name, link, card) {
   const imagePopupTemplate = document.querySelector('.image-template').content.querySelector('.image-popup').cloneNode('true');
   const imagePopupCloseBtn = imagePopupTemplate.querySelector('.image-popup__close-button');
@@ -77,8 +84,9 @@ const createImagePopup = function(name, link, card) {
 };
 
 // // create card
-const createCard = function(name, link) {
-  const card = document.querySelector('.card-template').content.querySelector('.elements__element').cloneNode('true');
+
+const createCard = function(name, link, template) {
+  const card = template.content.querySelector('.elements__element').cloneNode('true');
   const cardName = card.querySelector('.elements__place');
   const cardLink = card.querySelector('.elements__image');
   const cardLike = card.querySelector('.elements__like');
@@ -98,13 +106,20 @@ const createCard = function(name, link) {
 
   createImagePopup(name, link, cardLink);
 
-  listElement.prepend(card);
+  return card;
+};
+
+const renderCard = function(data, place) {
+  data.forEach(function(el){
+    const cardData = createCard(el.name, el.link, cardTemplate);
+    place.prepend(cardData);
+  })
 };
 
 
-// // initial card
+// initial card
 const initialCard = function() {
-  const cards = [
+  const cardsData = [
     {
     name: 'Карачаево-Черкессия',
     link: './image/kirill-pershin-1088404-unsplash.png'
@@ -131,9 +146,7 @@ const initialCard = function() {
   }
 ];
 
-  cards.forEach(function(card) {
-    createCard(card.name, card.link);
-  });
+ renderCard(cardsData, listElement);
 }
 
 initialCard();

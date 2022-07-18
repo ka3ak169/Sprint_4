@@ -8,7 +8,6 @@ const profilePopupInputActivity = profilePopupContainer.querySelector('.profile-
 const ProfileName = document.querySelector('.profile__name');
 const ProfileActivity = document.querySelector('.profile__activity');
 const page = document.querySelector('.page');
-// const content = document.querySelector('.content');
 // card-popup
 const cardPopupAddBtn = document.querySelector('.profile__add-button');
 const cardPopupElement = document.querySelector('.card-popup');
@@ -16,8 +15,6 @@ const cardPopupCloseBtn = cardPopupElement.querySelector('.card-popup__close-but
 const cardPopupInputPlace = cardPopupElement.querySelector('.card-popup__input_place_name');
 const cardPopupInputLink = cardPopupElement.querySelector('.card-popup__input_place_activity');
 const cardPopupFrom = cardPopupElement.querySelector('.card-popup__form');
-
-// const cardPopupSubmitBtn = cardPopupElement.querySelector('.card-popup__submit-button');
 
 const openPopup = function(popupName) {
   popupName.classList.add('popup_opened');
@@ -69,11 +66,11 @@ const createImagePopup = function(name, link, card) {
   imagePopupaption.textContent = name;
 
   card.addEventListener('click', function() {
-    imagePopupTemplate.classList.add('image-popup_opened');
+    openPopup(imagePopupTemplate);
   });
 
   imagePopupCloseBtn.addEventListener('click', function() {
-    imagePopupTemplate.classList.remove('image-popup_opened');
+    closePopup(imagePopupTemplate);
   });
 
   page.appendChild(imagePopupTemplate);

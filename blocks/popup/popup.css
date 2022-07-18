@@ -3,7 +3,10 @@
   height: 100%;
   position: fixed;
   z-index: 15;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
 }

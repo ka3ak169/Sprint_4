@@ -5,8 +5,8 @@ const profilePopupForm = profilePopupContainer.querySelector('.profile-popup__fo
 const profilePopupCloseBtn = document.querySelector('.profile-popup__close-button');
 const profilePopupInputName = profilePopupContainer.querySelector('.profile-popup__input_place_name');
 const profilePopupInputActivity = profilePopupContainer.querySelector('.profile-popup__input_place_activity');
-const ProfileName = document.querySelector('.profile__name');
-const ProfileActivity = document.querySelector('.profile__activity');
+const profileName = document.querySelector('.profile__name');
+const profileActivity = document.querySelector('.profile__activity');
 const page = document.querySelector('.page');
 // card-popup
 const cardPopupAddBtn = document.querySelector('.profile__add-button');
@@ -30,15 +30,15 @@ const closePopup = function(popupName) {
 
 const openProfilePopup = function() {
     openPopup(profilePopupContainer);
-    profilePopupInputName.value = ProfileName.textContent;
-    profilePopupInputActivity.value = ProfileActivity.textContent;
+    profilePopupInputName.value = profileName.textContent;
+    profilePopupInputActivity.value = profileActivity.textContent;
 };
 
 const formSubmitHandler = function(event) {
     event.preventDefault();
 
-    ProfileName.textContent = profilePopupInputName.value;
-    ProfileActivity.textContent = profilePopupInputActivity.value;
+    profileName.textContent = profilePopupInputName.value;
+    profileActivity.textContent = profilePopupInputActivity.value;
     closePopup(profilePopupContainer);
 }
 
@@ -62,26 +62,54 @@ const cardPopupSubmit = function(event) {
 
 // // image popup
 
-const createImagePopup = function(name, link, card) {
-  const imagePopupTemplate = document.querySelector('.image-template').content.querySelector('.image-popup').cloneNode('true');
-  const imagePopupCloseBtn = imagePopupTemplate.querySelector('.image-popup__close-button');
-  const imagePopupLink = imagePopupTemplate.querySelector('.image-popup__image');
-  const imagePopupaption = imagePopupTemplate.querySelector('.image-popup__description');
+const imagePopup = function(name, link) {
+  const imagePopupContainer = document.querySelector('.image-popup');
+  const imagePopupCloseBtn = imagePopupContainer.querySelector('.image-popup__close-button');
+  const imagePopupLink = imagePopupContainer.querySelector('.image-popup__image');
+  const imagePopupaption = imagePopupContainer.querySelector('.image-popup__description');
 
   imagePopupLink.src = link;
   imagePopupLink.alt = name;
   imagePopupaption.textContent = name;
 
-  card.addEventListener('click', function() {
-    openPopup(imagePopupTemplate);
-  });
-
   imagePopupCloseBtn.addEventListener('click', function() {
-    closePopup(imagePopupTemplate);
-  });
+        closePopup(imagePopupContainer);
+      });
 
-  page.appendChild(imagePopupTemplate);
-};
+  listElement.addEventListener('click', function(evt) {
+      console.log(evt);
+        openPopup(imagePopupContainer);
+      });
+
+}
+
+imagePopup()
+
+
+
+
+  
+
+// const createImagePopup = function(name, link, card) {
+//   const imagePopupTemplate = document.querySelector('.image-template').content.querySelector('.image-popup').cloneNode('true');
+//   const imagePopupCloseBtn = imagePopupTemplate.querySelector('.image-popup__close-button');
+//   const imagePopupLink = imagePopupTemplate.querySelector('.image-popup__image');
+//   const imagePopupaption = imagePopupTemplate.querySelector('.image-popup__description');
+
+//   imagePopupLink.src = link;
+//   imagePopupLink.alt = name;
+//   imagePopupaption.textContent = name;
+
+//   card.addEventListener('click', function() {
+//     openPopup(imagePopupTemplate);
+//   });
+
+//   imagePopupCloseBtn.addEventListener('click', function() {
+//     closePopup(imagePopupTemplate);
+//   });
+
+//   page.appendChild(imagePopupTemplate);
+// };
 
 // // create card
 
@@ -104,7 +132,7 @@ const createCard = function(name, link, template) {
     cardLike.classList.toggle('elements__like_active');
   });
 
-  createImagePopup(name, link, cardLink);
+  // createImagePopup(name, link, cardLink);
 
   return card;
 };

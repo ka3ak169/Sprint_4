@@ -55,10 +55,10 @@ profilePopupForm.addEventListener('submit', formSubmitHandler);
 
 const cardPopupSubmit = function(event) {
     event.preventDefault();
-    const data = [{
+    const data = {
       name: cardPopupInputPlace.value,
       link: cardPopupInputLink.value
-    }];
+    };
     renderCard(data, listElement);
     cardPopupFrom.reset();
 
@@ -70,6 +70,8 @@ const cardPopupSubmit = function(event) {
 imagePopupCloseBtn.addEventListener('click', function() {
    closePopup(imagePopupContainer);
   });
+
+
 
   // create card
 
@@ -92,27 +94,24 @@ const createCard = function(name, link, template) {
     cardLike.classList.toggle('elements__like_active');
   });
 
+  cardLink.addEventListener('click', function () {
+
+    imagePopupLink.src = link;
+    imagePopupLink.alt = name;
+    imagePopupaption.textContent = name;
+
+    openPopup(imagePopupContainer);
+  });
+
   return card;
 };
 
-// render card
+  // render card
 
-const renderCard = function(data, place) {
-  data.forEach(function(el){
-    const cardData = createCard(el.name, el.link, cardTemplate);
-    place.prepend(cardData);
-    cardData.addEventListener('click', function() {
-
-      imagePopupLink.src = el.link;
-      imagePopupLink.alt = el.name;
-      imagePopupaption.textContent = el.name;
-
-      openPopup(imagePopupContainer);
-    
-      });
-  })
-};
-
+  const renderCard = function(data, place) {
+    const cardData = createCard(data.name, data.link, cardTemplate);
+    place.prepend(cardData);  
+  };
 
 // initial card
 
@@ -144,7 +143,7 @@ const initialCard = function() {
   }
 ];
 
- renderCard(cardsData, listElement);
+cardsData.forEach( item => renderCard(item, listElement));
 }
 
 initialCard();

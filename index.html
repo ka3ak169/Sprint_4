@@ -39,7 +39,7 @@
                   <input class="profile-popup__input profile-popup__input_place_name" type="text" name="name" value="" placeholder="Имя" 
                           minlength="2" maxlength="40" required>
                   <span class="error"></span>
-                  <input class="profile-popup__input profile-popup__input_place_activity" type="text" name="activity" value="" placeholder="Вид деятельности" 
+                  <input class="profile-popup__input profile-popup__input_place_activity" type="text" name="activity" value="" placeholder="Вид деятельности"
                           minlength="2" maxlength="200" required>
                   <span class="error"></span>
                 </fieldset>
@@ -55,13 +55,13 @@
               <button class="card-popup__close-button" name="close" type="button"></button>
               <form class="card-popup__form">
                 <fieldset class="card-popup__field">
-                  <input type="text" class="card-popup__input card-popup__input_place_name" name="name" value="" placeholder="Название">
-                  <span class="error">какая-то ошибка</span>
-                  <input type="text" class="card-popup__input card-popup__input_place_activity" name="activity" value="" placeholder="Ссылка на картинку">
-                  <span class="error">какая-то ошибка</span>
+                  <input type="text" class="card-popup__input card-popup__input_place_name" name="name" value="" placeholder="Название" 
+                  minlength="2" maxlength="30" required>
+                  <span class="error"></span>
+                  <input type="url" class="card-popup__input card-popup__input_place_activity" name="activity" value="" placeholder="Ссылка на картинку" required>
+                  <span class="error"></span>
                 </fieldset>
-                <button class="card-popup__submit-button" type="submit" name="submit">Создать</button>
-                <!-- <button class="card-popup__submit-button card-popup__submit-button_disabled" type="submit" name="submit">Создать</button> -->                
+                <button class="card-popup__submit-button card-popup__submit-button_invalid" type="submit" name="submit" disabled>Создать</button>
               </form>
             </div>
           </div>

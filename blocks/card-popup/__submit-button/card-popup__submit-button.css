@@ -1,8 +1,6 @@
 .card-popup__submit-button {
     margin: 0;
     min-height: 50px;
-    color: #fff;
-    background-color: black;
     width: 100%;
     padding: 0;
     border-radius: 2px;
@@ -11,10 +9,7 @@
     line-height: 22px;
 }
 
-.card-popup__submit-button:hover {
-    opacity: .8;
-    cursor: pointer;
-}
+
 
 @media screen and (max-width:600px) {
     .card-popup__submit-button {

@@ -4,8 +4,16 @@ const formProfile = {
   button: '.profile-popup__submit-button',
   buttonValid: 'profile-popup__submit-button_valid',
   buttonInvalid: 'profile-popup__submit-button_invalid',
-
 }
+
+// объект config формы Card
+const formCard = {
+  form: '.card-popup__form',
+  button: '.card-popup__submit-button',
+  buttonValid: 'card-popup__submit-button_valid',
+  buttonInvalid: 'card-popup__submit-button_invalid',
+}
+
 
 // ищем формы, устанавливаем слушатели
 function enableValidation(config) {
@@ -25,12 +33,11 @@ function handlerFormSubmit(evt) {
 // Проверяем валидность формы
   const isValid = form.checkValidity();
 
-
   if (isValid) {
-    alert('Валидна!');
+    console.log('Валидна!');
     form.reset();
   } else {
-    alert('Не валидна!');
+    console.log('Не валидна!');
   }
 };
 
@@ -78,3 +85,4 @@ function setFieldError(input) {
 
 
 enableValidation(formProfile);
+enableValidation(formCard);

@@ -1,0 +1,9 @@
+.profile-popup__submit-button_valid {
+  color: #fff;
+  background-color: black;
+}
+
+.profile-popup__submit-button_valid:hover {
+  opacity: .8;
+  cursor: pointer;
+}

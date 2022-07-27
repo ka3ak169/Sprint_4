@@ -34,7 +34,8 @@
 @import url(../blocks/profile-popup/__heading/profile-popup__heading.css);
 @import url(../blocks/profile-popup/__input/profile-popup__input.css);
 @import url(../blocks/profile-popup/__submit-button/profile-popup__submit-button.css);
-@import url(../blocks/profile-popup/__submit-button/_disabled/profile-popup__submit-button_disabled.css);
+@import url(../blocks/profile-popup/__submit-button/_type/profile-popup__submit-button_invalid.css);
+@import url(../blocks/profile-popup/__submit-button/_type/profile-popup__submit-button_valid.css);
 /* блок image-popup */
 @import url(../blocks/image-popup/image-popup.css);
 @import url(../blocks/image-popup/__container/image-popup__container.css);

@@ -2,6 +2,8 @@
 const formProfile = {
   form: '.profile-popup__form',
   button: '.profile-popup__submit-button',
+  buttonValid: 'profile-popup__submit-button_valid',
+  buttonInvalid: 'profile-popup__submit-button_invalid',
 
 }
 
@@ -59,18 +61,18 @@ function setFieldError(input) {
   function setSubmitButtonState(form, config) {
     // нашли кнопку в форме
     const button = form.querySelector(config.button);
-
+    // проверяем валидность 
     const isValid = form.checkValidity();
 
 
     if (isValid) {
       button.removeAttribute('disabled');
-      button.classList.remove('profile-popup__submit-button_invalid');
-      button.classList.add('profile-popup__submit-button_valid');
+      button.classList.remove(config.buttonInvalid);
+      button.classList.add(config.buttonValid);
     } else {
       button.setAttribute('disabled', true);
-      button.classList.remove('profile-popup__submit-button_valid');
-      button.classList.add('profile-popup__submit-button_invalid');
+      button.classList.remove(config.buttonValid);
+      button.classList.add(config.buttonInvalid);
     }
   };
 

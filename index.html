@@ -37,9 +37,12 @@
               <form class="profile-popup__form">
                 <fieldset class="profile-popup__field">
                   <input type="text" class="profile-popup__input profile-popup__input_place_name" name="name" value="" placeholder="Имя">
+                  <span class="error">какая-то ошибка</span>
                   <input type="text" class="profile-popup__input profile-popup__input_place_activity" name="activity" value="" placeholder="Вид деятельности">
+                  <span class="error">какая-то ошибка</span>
                 </fieldset>
                 <button class="profile-popup__submit-button" type="submit" name="submit">Сохранть</button>
+                <!-- <button class="profile-popup__submit-button profile-popup__submit-button_disabled" type="submit" name="submit">Сохранть</button> -->
               </form>
             </div>
           </div>
@@ -52,17 +55,16 @@
               <form class="card-popup__form">
                 <fieldset class="card-popup__field">
                   <input type="text" class="card-popup__input card-popup__input_place_name" name="name" value="" placeholder="Название">
+                  <span class="error">какая-то ошибка</span>
                   <input type="text" class="card-popup__input card-popup__input_place_activity" name="activity" value="" placeholder="Ссылка на картинку">
+                  <span class="error">какая-то ошибка</span>
                 </fieldset>
                 <button class="card-popup__submit-button" type="submit" name="submit">Создать</button>
+                <!-- <button class="card-popup__submit-button card-popup__submit-button_disabled" type="submit" name="submit">Создать</button> -->                
               </form>
             </div>
           </div>
-
-
-
         <!-- image popop -->
-
             <!-- <div class="popup image-popup popup_opened"> -->
               <div class="popup image-popup">
               <div class="image-popup__container">
@@ -71,10 +73,6 @@
                 <p class="image-popup__description"></p>
               </div>
             </div>
-
-
-
-
           <!-- card box -->
           <template class="card-template">
             <div class="elements__element">

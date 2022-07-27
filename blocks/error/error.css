@@ -1,0 +1,7 @@
+.error {
+  box-sizing: border-box;
+  color: red;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: "inter", "Arial", sans-serif;
+}

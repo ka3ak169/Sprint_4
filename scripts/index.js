@@ -50,21 +50,11 @@ const closePopupEscBtn = function(popupName) {
 }
 
 
-
-// const closePopupEscBtn = function(popName) {
-//   popName.addEventListener('keypress', function() {
-//     console.log('клавишу нажали');
-// })
-// };
-
-// closePopupEscBtn(profilePopupContainer);
-
-// profile-popup
-
 const openProfilePopup = function() {
     openPopup(profilePopupContainer);
     profilePopupInputName.value = profileName.textContent;
     profilePopupInputActivity.value = profileActivity.textContent;
+    
 };
 
 const formSubmitHandler = function(event) {
@@ -76,8 +66,7 @@ const formSubmitHandler = function(event) {
 };
 
 profileEditBtn.addEventListener('click', function() { openProfilePopup() });
-profilePopupCloseBtn.addEventListener('click', function() { closePopup(profilePopupContainer) });
-profilePopupForm.addEventListener('submit', formSubmitHandler);
+
 
 // // card-popup
 
@@ -178,6 +167,6 @@ cardPopupFrom.addEventListener('submit', cardPopupSubmit);
 closePopupClickOverlay(cardPopupElement);
 closePopupClickOverlay(imagePopupContainer);
 closePopupClickOverlay(profilePopupContainer);
-closePopupEscBtn(cardPopupElement)
-closePopupEscBtn(imagePopupContainer)
-closePopupEscBtn(profilePopupContainer)
+closePopupEscBtn(cardPopupElement);
+closePopupEscBtn(imagePopupContainer);
+closePopupEscBtn(profilePopupContainer);

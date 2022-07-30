@@ -49,18 +49,6 @@ const closePopupEscBtn = function(popupName) {
   });
 }
 
-
-
-// const closePopupEscBtn = function(popName) {
-//   popName.addEventListener('keypress', function() {
-//     console.log('клавишу нажали');
-// })
-// };
-
-// closePopupEscBtn(profilePopupContainer);
-
-// profile-popup
-
 const openProfilePopup = function() {
     openPopup(profilePopupContainer);
     profilePopupInputName.value = profileName.textContent;

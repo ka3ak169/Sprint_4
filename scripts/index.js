@@ -25,11 +25,39 @@ const imagePopupaption = imagePopupContainer.querySelector('.image-popup__descri
 
 const openPopup = function(popupName) {
   popupName.classList.add('popup_opened');
-}
+};
 
 const closePopup = function(popupName) {
   popupName.classList.remove('popup_opened');
+};
+
+const closePopupClickOverlay = function(popupName) {
+  popupName.addEventListener('click', function(evt) {
+      if (evt.target !== evt.currentTarget) {
+    return;
+  }
+  closePopup(popupName);
+})
+};
+
+const closePopupEscBtn = function(popupName) {
+  document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    if(key==='Escape' && popupName.classList.contains('popup_opened')) {
+      closePopup(popupName);
+    }
+  });
 }
+
+
+
+// const closePopupEscBtn = function(popName) {
+//   popName.addEventListener('keypress', function() {
+//     console.log('клавишу нажали');
+// })
+// };
+
+// closePopupEscBtn(profilePopupContainer);
 
 // profile-popup
 
@@ -45,7 +73,7 @@ const formSubmitHandler = function(event) {
     profileName.textContent = profilePopupInputName.value;
     profileActivity.textContent = profilePopupInputActivity.value;
     closePopup(profilePopupContainer);
-}
+};
 
 profileEditBtn.addEventListener('click', function() { openProfilePopup() });
 profilePopupCloseBtn.addEventListener('click', function() { closePopup(profilePopupContainer) });
@@ -67,11 +95,7 @@ const cardPopupSubmit = function(event) {
 
 // // image popup
 
-imagePopupCloseBtn.addEventListener('click', function() {
-   closePopup(imagePopupContainer);
-  });
-
-
+imagePopupCloseBtn.addEventListener('click', function() { closePopup(imagePopupContainer) });
 
   // create card
 
@@ -148,6 +172,12 @@ cardsData.forEach( item => renderCard(item, listElement));
 
 initialCard();
 
-cardPopupAddBtn.addEventListener('click', function() {openPopup(cardPopupElement)});
-cardPopupCloseBtn.addEventListener('click', function() {closePopup(cardPopupElement)})
+cardPopupAddBtn.addEventListener('click', function() { openPopup(cardPopupElement) });
+cardPopupCloseBtn.addEventListener('click', function() { closePopup(cardPopupElement) })
 cardPopupFrom.addEventListener('submit', cardPopupSubmit);
+closePopupClickOverlay(cardPopupElement);
+closePopupClickOverlay(imagePopupContainer);
+closePopupClickOverlay(profilePopupContainer);
+closePopupEscBtn(cardPopupElement)
+closePopupEscBtn(imagePopupContainer)
+closePopupEscBtn(profilePopupContainer)

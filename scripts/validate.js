@@ -34,10 +34,10 @@ function handlerFormSubmit(evt) {
   const isValid = form.checkValidity();
 
   if (isValid) {
-    console.log('Валидна!');
+    // console.log('Валидна!');
     form.reset();
   } else {
-    console.log('Не валидна!');
+    // console.log('Не валидна!');
   }
 };
 

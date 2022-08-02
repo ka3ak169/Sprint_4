@@ -1,5 +1,6 @@
 .card-popup__container {
     max-width: 430px;
+    width: 100%;
     min-height: 330px;
     box-sizing: border-box;
     background-color: #fff;

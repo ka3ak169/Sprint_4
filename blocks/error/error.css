@@ -1,4 +1,6 @@
 .error {
+  display: block;
+  min-height: 30px;
   box-sizing: border-box;
   color: red;
   font-size: 12px;

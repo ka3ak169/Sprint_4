@@ -32,7 +32,7 @@ const closePopup = function(popupName) {
 };
 
 const closePopupClickOverlay = function(popupName) {
-  popupName.addEventListener('click', function(evt) {
+  popupName.addEventListener('mousedown', function(evt) {
       if (evt.target !== evt.currentTarget) {
     return;
   }

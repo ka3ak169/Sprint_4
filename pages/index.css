@@ -54,7 +54,7 @@
 @import url(../blocks/card-popup/__submit-button/_type/card-popup__submit-button_invalid.css);
 @import url(../blocks/card-popup/__submit-button/_type/card-popup__submit-button_valid.css);
 
-
+@import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 

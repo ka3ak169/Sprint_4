@@ -1,9 +1,0 @@
-.card-popup__submit-button_valid {
-  color: #fff;
-  background-color: black;
-}
-
-.card-popup__submit-button_valid:hover {
-  opacity: .8;
-  cursor: pointer;
-}

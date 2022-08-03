@@ -1,59 +1,70 @@
-// объект config формы Profile
-const formProfile = {
-  form: '.profile-popup__form',
-  button: '.profile-popup__submit-button',
-  input: '.profile-popup__input',
-  buttonValid: 'profile-popup__submit-button_valid',
-  buttonInvalid: 'profile-popup__submit-button_invalid',
+const showInputError = (formElement, inputElement, errorMessage) => { 
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add('form__input_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('form__input-error_active');
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('form__input_type_error');
+  errorElement.classList.remove('form__input-error_active');
+  errorElement.textContent = '';
+}; 
+
+const isValid = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+    return false
+  } else {
+    hideInputError(formElement, inputElement);
+    return true
+  }
 }
 
-// объект config формы Card
-const formCard = {
-  form: '.card-popup__form',
-  button: '.card-popup__submit-button',
-  input: '.card-popup__input',
-  buttonValid: 'card-popup__submit-button_valid',
-  buttonInvalid: 'card-popup__submit-button_invalid',
-  error: '.error',
+const setListeners = (form) => {
+  // слушатель ввода
+  const formInputs = Array.from(form.querySelectorAll('.form__input'));
+  const button = form.querySelector('.submit-button');
+  formInputs.forEach(input => {
+    input.addEventListener('input', () => {
+      isValid(form, input);
+      setSubmitButtonState(formInputs, button)
+      })
+    })
+  };
+  
+  // слушатель submit
+  const enableValidation = () => {
+  const formElements = Array.from(document.querySelectorAll('.popup__form'));
+  formElements.forEach(form => {
+    addEventListener('submit', function (evt) {
+      evt.preventDefault();
+    });
+    setListeners(form);
+    }
+  );
 }
 
-
-const formElement = document.querySelector(formCard.form);
-const formInput = formElement.querySelector(formCard.input);
-const formError = formElement.querySelector(formCard.error);
-
-// показать текст ошибки
-const showError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  formError.textContent = errorMessage;
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+ return !inputElement.validity.valid;    
+ })
 };
 
-// убрать текст ошибки
-const hideError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  formError.textContent = '';
+// Переключаем кнопку
+function setSubmitButtonState(inputList, button) {
+  // проверяем валидность 
+  if (hasInvalidInput(inputList)) {
+    button.setAttribute('disabled', true);
+    button.classList.add('submit-button_invalid');
+  } else {
+    button.removeAttribute('disabled');
+    button.classList.remove('submit-button_invalid');
+
+  }
 };
+  
 
-// слушатель submit
-formElement.addEventListener('submit', function (evt) {
-  evt.preventDefault();
-});
-
-// слушатель ввода
-formInput.addEventListener('input', function (evt) {
-  console.log(evt.target.validity);
-  checkInputValidity();
-});
-
-// проверка валидности
-const checkInputValidity = (formElement, inputElement) => {
-  if (!formInput.validity.valid) {
-    showError(formElement, inputElement, formInput.validationMessage);
-   console.log('не валидна');
- } else {
-  hideError(formElement, inputElement);
-  console.log('валидна');
- }
-};
-
+enableValidation();
 

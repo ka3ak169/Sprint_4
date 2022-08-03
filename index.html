@@ -34,16 +34,16 @@
             <div class="profile-popup__container">
               <h2 class="profile-popup__heading">Редактировать профиль</h2>
               <button class="profile-popup__close-button" name="close" type="button"></button>
-              <form class="profile-popup__form" name="formProfile" novalidate>
+              <form class="profile-popup__form popup__form" name="formProfile" novalidate>
                 <fieldset class="profile-popup__field">
                   <input class="form__input profile-popup__input profile-popup__input_place_name" id="profile_name_input" type="text" name="name" value="" placeholder="Имя" 
                           minlength="2" maxlength="40" required>
-                  <span class="error profile_name_error"></span>
+                  <span class="error profile_name_input-error"></span>
                   <input class="form__input profile-popup__input profile-popup__input_place_activity" id="profile_activity_input" type="text" name="activity" value="" placeholder="Вид деятельности"
                           minlength="2" maxlength="200" required>
-                  <span class="error profile_activity_error"></span>
+                  <span class="error profile_activity_input-error"></span>
                 </fieldset>
-                <button class="profile-popup__submit-button profile-popup__submit-button_invalid" type="submit" name="submit">Сохранть</button>
+                <button class="submit-button submit-button_invalid" type="submit" name="submit">Сохранть</button>
               </form>
             </div>
           </div>
@@ -53,15 +53,15 @@
             <div class="card-popup__container">
               <h2 class="card-popup__heading">Новое место</h2>
               <button class="card-popup__close-button" name="close" type="button"></button>
-              <form class="card-popup__form" novalidate>
+              <form class="card-popup__form popup__form" novalidate>
                 <fieldset class="card-popup__field">
                   <input type="text" class="form__input card-popup__input card-popup__input_place_name" id="card_name_input" name="name" value="" placeholder="Название" 
                   minlength="2" maxlength="30" required>
-                  <span class="error card_name_error"></span>
+                  <span class="error card_name_input-error"></span>
                   <input type="url" class="form__input card-popup__input card-popup__input_place_activity" id="card_activity_input" name="activity" value="" placeholder="Ссылка на картинку" required>
-                  <span class="error card_activity_error"></span>
+                  <span class="error card_activity_input-error"></span>
                 </fieldset>
-                <button class="card-popup__submit-button card-popup__submit-button_invalid" type="submit" name="submit">Создать</button>
+                <button class="submit-button submit-button_invalid" type="submit" name="submit">Создать</button>
               </form>
             </div>
           </div>

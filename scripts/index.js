@@ -25,10 +25,12 @@ const imagePopupaption = imagePopupContainer.querySelector('.image-popup__descri
 
 const openPopup = function(popupName) {
   popupName.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEscBtn);
 };
 
 const closePopup = function(popupName) {
   popupName.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEscBtn);
 };
 
 const closePopupClickOverlay = function(popupName) {
@@ -40,14 +42,12 @@ const closePopupClickOverlay = function(popupName) {
 })
 };
 
-const closePopupEscBtn = function(popupName) {
-  document.addEventListener('keydown', function(event) {
-    const key = event.key;
-    if(key==='Escape' && popupName.classList.contains('popup_opened')) {
-      closePopup(popupName);
-    }
-  });
-}
+function closePopupEscBtn(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+     closePopup(openedPopup);
+  }
+};
 
 const openProfilePopup = function() {
     openPopup(profilePopupContainer);

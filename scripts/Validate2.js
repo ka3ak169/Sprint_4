@@ -1,26 +1,30 @@
 const showInputError = (formElement, inputElement, errorMessage) => { 
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add('form__input_type_error');
   errorElement.textContent = errorMessage;
-
+  errorElement.classList.add('form__input-error_active');
 };
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('form__input_type_error');
+  errorElement.classList.remove('form__input-error_active');
   errorElement.textContent = '';
 }; 
 
 const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
+    return false
   } else {
     hideInputError(formElement, inputElement);
+    return true
   }
 }
 
-
 const setListeners = (form) => {
   // слушатель ввода
-  const formInputs = Array.from(form.querySelectorAll('.form__input'));
+  const formInputs = Array.from(form.querySelectorAll('.popup__form-input'));
   const button = form.querySelector('.submit-button');
   formInputs.forEach(input => {
     input.addEventListener('input', () => {

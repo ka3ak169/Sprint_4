@@ -3,17 +3,19 @@ const profilePopupContainer = document.querySelector('.profile-popup');
 const profileEditBtn = document.querySelector('.profile__edit-button');
 const profilePopupForm = profilePopupContainer.querySelector('.profile-popup__form');
 const profilePopupCloseBtn = document.querySelector('.profile-popup__close-button');
-const profilePopupInputName = profilePopupContainer.querySelector('.profile-popup__input_place_name');
-const profilePopupInputActivity = profilePopupContainer.querySelector('.profile-popup__input_place_activity');
+const profilePopupInputName = profilePopupContainer.querySelector('.profile-popup-name');
+const profilePopupInputActivity = profilePopupContainer.querySelector('.profile-popup-activity');
 const profileName = document.querySelector('.profile__name');
 const profileActivity = document.querySelector('.profile__activity');
+
 const page = document.querySelector('.page');
 // card-popup
 const cardPopupAddBtn = document.querySelector('.profile__add-button');
+const cardSubmitBtn = document.querySelector('.submit-button[name="card-submit"]')
 const cardPopupElement = document.querySelector('.card-popup');
 const cardPopupCloseBtn = cardPopupElement.querySelector('.card-popup__close-button');
-const cardPopupInputPlace = cardPopupElement.querySelector('.card-popup__input_place_name');
-const cardPopupInputLink = cardPopupElement.querySelector('.card-popup__input_place_activity');
+const cardPopupInputPlace = cardPopupElement.querySelector('.card-popup-name');
+const cardPopupInputLink = cardPopupElement.querySelector('.card-popup-activity');
 const cardPopupFrom = cardPopupElement.querySelector('.card-popup__form');
 // card teamplate
 const cardTemplate = document.querySelector('.card-template');
@@ -77,6 +79,8 @@ const cardPopupSubmit = function(event) {
     };
     renderCard(data, listElement);
     cardPopupFrom.reset();
+    cardSubmitBtn.disabled = true;
+    cardSubmitBtn.classList.add('submit-button_invalid');
 
     closePopup(cardPopupElement);
 };

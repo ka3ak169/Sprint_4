@@ -91,78 +91,78 @@ imagePopupCloseBtn.addEventListener('click', function() { closePopup(imagePopupC
 
   // create card
 
-const createCard = function(name, link, template) {
-  const card = template.content.querySelector('.elements__element').cloneNode('true');
-  const cardName = card.querySelector('.elements__place');
-  const cardLink = card.querySelector('.elements__image');
-  const cardLike = card.querySelector('.elements__like');
-  const cardTrash = card.querySelector('.elements__trash');
+// const createCard = function(name, link, template) {
+//   const card = template.content.querySelector('.elements__element').cloneNode('true');
+//   const cardName = card.querySelector('.elements__place');
+//   const cardLink = card.querySelector('.elements__image');
+//   const cardLike = card.querySelector('.elements__like');
+//   const cardTrash = card.querySelector('.elements__trash');
 
-  cardName.textContent = name;
-  cardLink.alt = name;
-  cardLink.src = link;
+//   cardName.textContent = name;
+//   cardLink.alt = name;
+//   cardLink.src = link;
 
-  cardTrash.addEventListener('click', function() {
-    card.remove();
-  });
+//   cardTrash.addEventListener('click', function() {
+//     card.remove();
+//   });
 
-  cardLike.addEventListener('click', function() {
-    cardLike.classList.toggle('elements__like_active');
-  });
+//   cardLike.addEventListener('click', function() {
+//     cardLike.classList.toggle('elements__like_active');
+//   });
 
-  cardLink.addEventListener('click', function () {
+//   cardLink.addEventListener('click', function () {
 
-    imagePopupLink.src = link;
-    imagePopupLink.alt = name;
-    imagePopupaption.textContent = name;
+//     imagePopupLink.src = link;
+//     imagePopupLink.alt = name;
+//     imagePopupaption.textContent = name;
 
-    openPopup(imagePopupContainer);
-  });
+//     openPopup(imagePopupContainer);
+//   });
 
-  return card;
-};
+//   return card;
+// };
 
-  // render card
+// //   // render card
 
-  const renderCard = function(data, place) {
-    const cardData = createCard(data.name, data.link, cardTemplate);
-    place.prepend(cardData);  
-  };
+//   const renderCard = function(data, place) {
+//     const cardData = createCard(data.name, data.link, cardTemplate);
+//     place.prepend(cardData);  
+//   };
 
-// initial card
+// // initial card
 
-const initialCard = function() {
-  const cardsData = [
-    {
-    name: 'Карачаево-Черкессия',
-    link: './image/kirill-pershin-1088404-unsplash.png'
-  },
-  {
-    name: 'Милая кошечка Агата',
-    link: './image/Агата.jpg'
-  },
-  {
-    name: 'Милый котик Барсик',
-    link: './image/Баркик.jpg'
-  },
-  {
-    name: 'Милый котик Борис',
-    link: './image/Борис.jpg'
-  },
-  {
-    name: 'Милый котик Рыжик',
-    link: './image/Рыжик.jpg'
-  },
-  {
-    name: 'Милый котик Тимоша',
-    link: './image/Тимоша.jpg'
-  }
-];
+// const initialCard = function() {
+//   const cardsData = [
+//     {
+//     name: 'Карачаево-Черкессия',
+//     link: './image/kirill-pershin-1088404-unsplash.png'
+//   },
+//   {
+//     name: 'Милая кошечка Агата',
+//     link: './image/Агата.jpg'
+//   },
+//   {
+//     name: 'Милый котик Барсик',
+//     link: './image/Баркик.jpg'
+//   },
+//   {
+//     name: 'Милый котик Борис',
+//     link: './image/Борис.jpg'
+//   },
+//   {
+//     name: 'Милый котик Рыжик',
+//     link: './image/Рыжик.jpg'
+//   },
+//   {
+//     name: 'Милый котик Тимоша',
+//     link: './image/Тимоша.jpg'
+//   }
+// ];
 
-cardsData.forEach( item => renderCard(item, listElement));
-}
+// cardsData.forEach( item => renderCard(item, listElement));
+// }
 
-initialCard();
+// initialCard();
 
 cardPopupAddBtn.addEventListener('click', function() { openPopup(cardPopupElement) });
 cardPopupCloseBtn.addEventListener('click', function() { closePopup(cardPopupElement) })

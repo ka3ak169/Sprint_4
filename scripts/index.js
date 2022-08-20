@@ -1,4 +1,5 @@
-const listElement = document.querySelector('.elements');
+import {Card} from './Card.js'
+
 const profilePopupContainer = document.querySelector('.profile-popup');
 const profileEditBtn = document.querySelector('.profile__edit-button');
 const profilePopupForm = profilePopupContainer.querySelector('.profile-popup__form');
@@ -7,8 +8,6 @@ const profilePopupInputName = profilePopupContainer.querySelector('.profile-popu
 const profilePopupInputActivity = profilePopupContainer.querySelector('.profile-popup-activity');
 const profileName = document.querySelector('.profile__name');
 const profileActivity = document.querySelector('.profile__activity');
-
-const page = document.querySelector('.page');
 // card-popup
 const cardPopupAddBtn = document.querySelector('.profile__add-button');
 const cardSubmitBtn = document.querySelector('.submit-button[name="card-submit"]')
@@ -17,15 +16,11 @@ const cardPopupCloseBtn = cardPopupElement.querySelector('.card-popup__close-but
 const cardPopupInputPlace = cardPopupElement.querySelector('.card-popup-name');
 const cardPopupInputLink = cardPopupElement.querySelector('.card-popup-activity');
 const cardPopupFrom = cardPopupElement.querySelector('.card-popup__form');
-// card teamplate
-const cardTemplate = document.querySelector('.card-template');
 // image popup
 const imagePopupContainer = document.querySelector('.image-popup');
 const imagePopupCloseBtn = imagePopupContainer.querySelector('.image-popup__close-button');
-const imagePopupLink = imagePopupContainer.querySelector('.image-popup__image');
-const imagePopupaption = imagePopupContainer.querySelector('.image-popup__description');
 
-const openPopup = function(popupName) {
+export const openPopup = function(popupName) {
   popupName.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEscBtn);
 };
@@ -69,100 +64,62 @@ profileEditBtn.addEventListener('click', function() { openProfilePopup() });
 profilePopupCloseBtn.addEventListener('click', function() { closePopup(profilePopupContainer) });
 profilePopupForm.addEventListener('submit', formSubmitHandler);
 
-// // card-popup
-
-const cardPopupSubmit = function(event) {
-    event.preventDefault();
-    const data = {
-      name: cardPopupInputPlace.value,
-      link: cardPopupInputLink.value
-    };
-    renderCard(data, listElement);
-    cardPopupFrom.reset();
-    cardSubmitBtn.disabled = true;
-    cardSubmitBtn.classList.add('submit-button_invalid');
-
-    closePopup(cardPopupElement);
-};
-
 // // image popup
 
 imagePopupCloseBtn.addEventListener('click', function() { closePopup(imagePopupContainer) });
 
-  // create card
+const cardsData = [
+  {
+  name: 'Карачаево-Черкессия',
+  link: './image/kirill-pershin-1088404-unsplash.png'
+},
+{
+  name: 'Милая кошечка Агата',
+  link: './image/Агата.jpg'
+},
+{
+  name: 'Милый котик Барсик',
+  link: './image/Баркик.jpg'
+},
+{
+  name: 'Милый котик Борис',
+  link: './image/Борис.jpg'
+},
+{
+  name: 'Милый котик Рыжик',
+  link: './image/Рыжик.jpg'
+},
+{
+  name: 'Милый котик Тимоша',
+  link: './image/Тимоша.jpg'
+}
+];
 
-// const createCard = function(name, link, template) {
-//   const card = template.content.querySelector('.elements__element').cloneNode('true');
-//   const cardName = card.querySelector('.elements__place');
-//   const cardLink = card.querySelector('.elements__image');
-//   const cardLike = card.querySelector('.elements__like');
-//   const cardTrash = card.querySelector('.elements__trash');
 
-//   cardName.textContent = name;
-//   cardLink.alt = name;
-//   cardLink.src = link;
+cardsData.forEach((data) => {
+  const card = new Card (data, '.card-template');
+  const cardElement = card.generateCard();  
+  document.querySelector('.elements').prepend(cardElement);
+})
 
-//   cardTrash.addEventListener('click', function() {
-//     card.remove();
-//   });
+// // card-popup
 
-//   cardLike.addEventListener('click', function() {
-//     cardLike.classList.toggle('elements__like_active');
-//   });
+const cardPopupSubmit = function(event) {
+  event.preventDefault();
+  const data = {
+    name: cardPopupInputPlace.value,
+    link: cardPopupInputLink.value
+  };
+  const card = new Card (data, '.card-template');
+  const cardElement = card.generateCard();
+  document.querySelector('.elements').prepend(cardElement);
+  cardPopupFrom.reset();
+  cardSubmitBtn.disabled = true;
+  cardSubmitBtn.classList.add('submit-button_invalid');
 
-//   cardLink.addEventListener('click', function () {
+  closePopup(cardPopupElement);
+};
 
-//     imagePopupLink.src = link;
-//     imagePopupLink.alt = name;
-//     imagePopupaption.textContent = name;
-
-//     openPopup(imagePopupContainer);
-//   });
-
-//   return card;
-// };
-
-// //   // render card
-
-//   const renderCard = function(data, place) {
-//     const cardData = createCard(data.name, data.link, cardTemplate);
-//     place.prepend(cardData);  
-//   };
-
-// // initial card
-
-// const initialCard = function() {
-//   const cardsData = [
-//     {
-//     name: 'Карачаево-Черкессия',
-//     link: './image/kirill-pershin-1088404-unsplash.png'
-//   },
-//   {
-//     name: 'Милая кошечка Агата',
-//     link: './image/Агата.jpg'
-//   },
-//   {
-//     name: 'Милый котик Барсик',
-//     link: './image/Баркик.jpg'
-//   },
-//   {
-//     name: 'Милый котик Борис',
-//     link: './image/Борис.jpg'
-//   },
-//   {
-//     name: 'Милый котик Рыжик',
-//     link: './image/Рыжик.jpg'
-//   },
-//   {
-//     name: 'Милый котик Тимоша',
-//     link: './image/Тимоша.jpg'
-//   }
-// ];
-
-// cardsData.forEach( item => renderCard(item, listElement));
-// }
-
-// initialCard();
 
 cardPopupAddBtn.addEventListener('click', function() { openPopup(cardPopupElement) });
 cardPopupCloseBtn.addEventListener('click', function() { closePopup(cardPopupElement) })

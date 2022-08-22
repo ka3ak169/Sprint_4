@@ -1,4 +1,5 @@
 import {Card} from './Card.js'
+import {FormValidator} from './FormValidator.js'
 
 const profilePopupContainer = document.querySelector('.profile-popup');
 const profileEditBtn = document.querySelector('.profile__edit-button');
@@ -96,8 +97,8 @@ const cardsData = [
 ];
 
 
-cardsData.forEach((data) => {
-  const card = new Card (data, '.card-template');
+cardsData.forEach((item) => {
+  const card = new Card (item, '.card-template');
   const cardElement = card.generateCard();  
   document.querySelector('.elements').prepend(cardElement);
 })
@@ -120,7 +121,6 @@ const cardPopupSubmit = function(event) {
   closePopup(cardPopupElement);
 };
 
-
 cardPopupAddBtn.addEventListener('click', function() { openPopup(cardPopupElement) });
 cardPopupCloseBtn.addEventListener('click', function() { closePopup(cardPopupElement) })
 cardPopupFrom.addEventListener('submit', cardPopupSubmit);
@@ -130,3 +130,13 @@ closePopupClickOverlay(profilePopupContainer);
 closePopupEscBtn(cardPopupElement);
 closePopupEscBtn(imagePopupContainer);
 closePopupEscBtn(profilePopupContainer);
+
+const dataValidate = {
+  input: '.popup__form-input',
+  submitBtn: '.submit-button',
+  form: '.popup__form',
+  submitBtnInvalid: 'submit-button_invalid',
+};
+
+new FormValidator (dataValidate, profilePopupForm).enableValidation();
+

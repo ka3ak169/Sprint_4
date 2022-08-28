@@ -36,18 +36,18 @@ const setListeners = (form, config) => {
     })
   };
   
-  // слушатель submit
-  const enableValidation = (config) => {
-    const formElements = Array.from(document.querySelectorAll(config.form));
-    formElements.forEach(form => {
-      setListeners(form, config);
-      }
-    );
-  }
+ // слушатель submit
+const enableValidation = (config) => {
+  const formElements = Array.from(document.querySelectorAll(config.form));
+  formElements.forEach(form => {
+  setListeners(form, config);
+    }
+  );
+}
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
- return !inputElement.validity.valid;    
+  return !inputElement.validity.valid;
  })
 };
 

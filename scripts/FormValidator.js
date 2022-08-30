@@ -59,5 +59,4 @@ export class FormValidator {
   enableValidation () {
     this._setListeners();
   };
-
 };

@@ -17,7 +17,6 @@ export class FormValidator {
   }
 
   _isValid(input) {
-    // console.log(input);
     if (!input.validity.valid) {
       this._showError(input);
     } else {
@@ -30,21 +29,15 @@ export class FormValidator {
     const formInputs = Array.from(this._formSelector.querySelectorAll('.popup__form-input'));
     formInputs.forEach((input) => {
       input.addEventListener('input', () => {
-        // console.log(this._submitBtn);
         this._isValid(input);
-        // this.abc(formInputs);
-        console.log(this._hasInvalidInput(formInputs));
-
         this._setSubmitButtonState(formInputs);
         })
       })
     };
 
-   abc(int) {console.log(int);}
-
-  _hasInvalidInput(list) {
-    return list.some((elem) => {
-    return !elem.validity.valid;
+  _hasInvalidInput(listList) {
+    return listList.some((input) => {
+    return !input.validity.valid;
    })
   };
 

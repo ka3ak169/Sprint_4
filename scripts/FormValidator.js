@@ -2,8 +2,9 @@ export class FormValidator {
 
   constructor (data, formSelector) {
     this._formSelector = formSelector;
-    this._input = this._formSelector.querySelector(data.input);
+    this._inputs = this._formSelector.querySelectorAll(data.input);
     this._submitBtn = this._formSelector.querySelector(data.submitBtn);
+    this._submitBtnInvalid = data.submitBtnInvalid;
   };
 
   _showError(input) {
@@ -26,7 +27,7 @@ export class FormValidator {
 
       // слушатель ввода
   _setListeners() {
-    const formInputs = Array.from(this._formSelector.querySelectorAll('.popup__form-input'));
+    const formInputs = Array.from(this._inputs);
     formInputs.forEach((input) => {
       input.addEventListener('input', () => {
         this._isValid(input);
@@ -37,23 +38,23 @@ export class FormValidator {
 
   _hasInvalidInput(inputList) {
     return inputList.some((input) => {
-    return !input.validity.valid;
+      return !input.validity.valid;
     })
   };
 
   _setSubmitButtonState(inputList) {
     if (this._hasInvalidInput(inputList)) {
       this._submitBtn.setAttribute('disabled', true);
-      this._submitBtn.classList.add('submit-button_invalid');
+      this._submitBtn.classList.add(this._submitBtnInvalid);
     } else {
       this._submitBtn.removeAttribute('disabled');
-      this._submitBtn.classList.remove('submit-button_invalid');
+      this._submitBtn.classList.remove(this._submitBtnInvalid);
     }
   };
   
   disableSubmitButton() {
     this._submitBtn.setAttribute('disabled', true);
-    this._submitBtn.classList.add('submit-button_invalid');
+    this._submitBtn.classList.add(this._submitBtnInvalid);
   }; 
 
   enableValidation () {
